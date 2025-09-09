@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hein Soe Htun — Portfolio & Resume</title>
+    <meta
+      name="description"
+      content="Hein Soe Htun (Kelly) — Graphic Designer & aspiring Full-Stack Developer. Portfolio, experience, projects and contact."
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0b0b0f;
+        --card: #0f1115;
+        --muted: #9aa0a6;
+        --accent: #7c5cff;
+        --accent-2: #00d1ff;
+        --glass: rgba(255, 255, 255, 0.04);
+        --radius: 16px;
+        --maxw: 1100px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: linear-gradient(180deg, #050507 0%, #0b0b0f 100%);
+        color: #e6eef8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.5;
+      }
+
+      .container {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 48px 20px;
+      }
+
+      /* NAV */
+      header {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 18px;
+        z-index: 60;
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        background: transparent;
+        padding: 8px 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-family: Poppins;
+      }
+      .brand h1 {
+        font-size: 14px;
+        margin: 0;
+      }
+      nav ul {
+        display: flex;
+        gap: 18px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      /* Mobile nav */
+      .nav-toggle {
+        display: none;
+        background: transparent;
+        border: 0;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      /* HERO */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        align-items: center;
+        gap: 40px;
+        padding-top: 60px;
+      }
+      .hero-left h2 {
+        font-family: Poppins;
+        font-size: 38px;
+        margin: 0 0 12px;
+      }
+      .hero-left p {
+        color: var(--muted);
+        margin: 0 0 18px;
+      }
+      .cta {
+        display: flex;
+        gap: 12px;
+      }
+      .btn {
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 0;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid rgba(124, 92, 255, 0.12);
+      }
+      .btn-primary {
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #061018;
+      }
+
+      .hero-right {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          transparent
+        );
+        padding: 20px;
+        border-radius: var(--radius);
+        backdrop-filter: blur(6px);
+      }
+      .profile {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      .avatar {
+        width: 88px;
+        height: 88px;
+        border-radius: 14px;
+        background: linear-gradient(180deg, #1b1b22, #101014);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 28px;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* CARDS */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        margin-top: 36px;
+      }
+      .card {
+        grid-column: span 12;
+        background: var(--card);
+        padding: 18px;
+        border-radius: 12px;
+        box-shadow: 0 4px 30px rgba(2, 6, 23, 0.6);
+      }
+
+      /* Skills + Experience */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .skills .skill {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .skill .bar {
+        height: 8px;
+        background: var(--glass);
+        border-radius: 999px;
+        flex: 1;
+        margin-left: 12px;
+        overflow: hidden;
+      }
+      .skill .bar > i {
+        display: block;
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      }
+
+      /* Timeline */
+      .timeline {
+        position: relative;
+        padding-left: 20px;
+      }
+      .timeline:before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 6px;
+        height: 100%;
+        width: 2px;
+        background: linear-gradient(180deg, var(--accent), var(--accent-2));
+        opacity: 0.18;
+      }
+      .entry {
+        position: relative;
+        padding: 14px 12px;
+        margin-bottom: 18px;
+        border-radius: 10px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.01),
+          transparent
+        );
+      }
+      .entry:before {
+        content: "";
+        position: absolute;
+        left: -28px;
+        top: 18px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      .entry h4 {
+        margin: 0 0 6px;
+      }
+      .entry p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* Projects */
+      .projects-tabs {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .projects-tabs button {
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 0;
+        background: var(--glass);
+        color: var(--muted);
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .projects-tabs button.active {
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #061018;
+      }
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      .tool-card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          transparent
+        );
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+      }
+      .tool-card input,
+      .tool-card select {
+        margin: 5px 0;
+        padding: 8px;
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: transparent;
+        color: #fff;
+      }
+
+      /* Contact */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      input,
+      textarea {
+        padding: 12px;
+        border-radius: 8px;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: inherit;
+      }
+      textarea {
+        min-height: 120px;
+      }
+
+      footer {
+        margin-top: 36px;
+        padding: 30px 0;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .nav-toggle {
+          display: block;
+        }
+        nav {
+          display: none;
+        }
+        .grid {
+          padding-top: 12px;
+        }
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+      .caps {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="nav-inner container">
+        <div class="brand">
+          <div class="logo">KH</div>
+          <h1>Hein Soe Htun</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle">Menu</button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="container hero">
+      <div class="hero-left">
+        <h2>Hi, I'm Hein Soe Htun</h2>
+        <p>
+          Graphic Designer & aspiring Full-Stack Developer. Exploring creative
+          solutions and coding adventures.
+        </p>
+        <div class="cta">
+          <button
+            class="btn btn-primary"
+            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+          >
+            Contact Me
+          </button>
+          <a class="btn btn-ghost" href="#resume">View Resume</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="profile">
+          <div class="avatar">KH</div>
+          <div>
+            <p class="meta">Bangkok, Thailand</p>
+            <p class="meta">Kelly</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main style="padding-top: 90px">
+      <!-- PROJECTS -->
+      <section class="container grid" id="projects">
+        <div class="card" style="grid-column: span 12">
+          <h3 style="margin: 0 0 12px">Projects</h3>
+          <div class="projects-tabs">
+            <button class="tab-btn active" data-tab="grade">
+              Grade Assignment
+            </button>
+            <button class="tab-btn" data-tab="change">Change Calculator</button>
+            <button class="tab-btn" data-tab="converter">Unit Converter</button>
+            <button class="tab-btn" data-tab="geo">Geolocation</button>
+          </div>
+
+          <div id="grade" class="tab-content active">
+            <div class="tool-card">
+              <h4>Grade Assignment</h4>
+              <input
+                type="number"
+                id="marks"
+                placeholder="Enter marks (0-100)"
+              />
+              <button class="btn btn-primary" onclick="calculateGrade()">
+                Get Grade
+              </button>
+              <p id="gradeResult"></p>
+            </div>
+          </div>
+
+          <div id="change" class="tab-content">
+            <div class="tool-card">
+              <h4>Change Calculator</h4>
+              <input type="number" id="amount" placeholder="Enter amount" />
+              <button class="btn btn-primary" onclick="calculateChange()">
+                Calculate
+              </button>
+              <p id="changeResult"></p>
+            </div>
+          </div>
+
+          <div id="converter" class="tab-content">
+            <div class="tool-card">
+              <h4>Unit Converter</h4>
+              <input type="number" id="value" placeholder="Enter value" />
+              <select id="unitFrom">
+                <option value="cm">Centimeters</option>
+                <option value="m">Meters</option>
+              </select>
+              to
+              <select id="unitTo">
+                <option value="m">Meters</option>
+                <option value="cm">Centimeters</option>
+              </select>
+              <button class="btn btn-primary" onclick="convertUnit()">
+                Convert
+              </button>
+              <p id="convertResult"></p>
+            </div>
+          </div>
+
+          <div id="geo" class="tab-content">
+            <div class="tool-card">
+              <h4>Geolocation</h4>
+              <button class="btn btn-primary" onclick="getLocation()">
+                Get My Location
+              </button>
+              <p id="geoResult"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESUME -->
+      <section class="container grid" id="resume">
+        <div class="card" style="grid-column: span 12">
+          <h3 style="margin: 0 0 12px">Resume</h3>
+
+          <!-- Education -->
+          <div class="timeline">
+            <div class="entry">
+              <h4>Bachelor of Law — XYZ University</h4>
+              <p class="muted">2016 - 2020</p>
+              <p>
+                Completed my degree in Law, but pursued graphic design and
+                programming as my career path.
+              </p>
+            </div>
+            <div class="entry">
+              <h4>Kasem Bundit University — Bangkok, Thailand</h4>
+              <p class="muted">2025 - Present</p>
+              <p>
+                Currently studying to transition into Full-Stack Development.
+              </p>
+            </div>
+          </div>
+
+          <!-- Work Experience -->
+          <h4 style="margin-top: 20px">Experience</h4>
+          <div class="timeline">
+            <div class="entry">
+              <h4>Graphic Designer — Freelance</h4>
+              <p class="muted">2019 - Present</p>
+              <p>
+                Over 4 years of experience in graphic design, branding, and
+                UI/UX design.
+              </p>
+            </div>
+            <div class="entry">
+              <h4>Recruitment Consultant — ValueJobs Consultant</h4>
+              <p class="muted">2024 - Present</p>
+              <p>
+                Specialized in connecting unskilled labor to Southeast Asian job
+                markets.
+              </p>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <h4 style="margin-top: 20px">Skills</h4>
+          <div class="two-col skills">
+            <div class="skill">
+              <span>HTML & CSS</span>
+              <div class="bar"><i style="width: 90%"></i></div>
+            </div>
+            <div class="skill">
+              <span>JavaScript</span>
+              <div class="bar"><i style="width: 65%"></i></div>
+            </div>
+            <div class="skill">
+              <span>UI/UX Design</span>
+              <div class="bar"><i style="width: 85%"></i></div>
+            </div>
+            <div class="skill">
+              <span>Graphic Design</span>
+              <div class="bar"><i style="width: 95%"></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="container grid" id="contact">
+        <div class="card" style="grid-column: span 12">
+          <h3 style="margin: 0 0 12px">Contact Me</h3>
+          <div class="contact-grid">
+            <form>
+              <input type="text" placeholder="Your Name" />
+              <input type="email" placeholder="Your Email" />
+              <textarea placeholder="Your Message"></textarea>
+              <button class="btn btn-primary">Send Message</button>
+            </form>
+            <div>
+              <p>Email: kelly@example.com</p>
+              <p>Phone: +66 123 456 789</p>
+              <p>Location: Bangkok, Thailand</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 Hein Soe Htun — Built with care. All rights reserved.
+    </footer>
+
+    <script>
+      // Project tool functions
+      function calculateGrade() {
+        let marks = document.getElementById("marks").value;
+        let grade;
+        if (marks >= 90) grade = "A";
+        else if (marks >= 75) grade = "B";
+        else if (marks >= 60) grade = "C";
+        else if (marks >= 50) grade = "D";
+        else grade = "F";
+        document.getElementById("gradeResult").innerText =
+          "Your grade: " + grade;
+      }
+
+      function calculateChange() {
+        let amount = parseInt(document.getElementById("amount").value);
+        let notes = [1000, 500, 100, 50, 20, 10, 5, 1];
+        let result = "";
+        notes.forEach((n) => {
+          let count = Math.floor(amount / n);
+          if (count > 0) {
+            result += `${n}: ${count} \n`;
+            amount %= n;
+          }
+        });
+        document.getElementById("changeResult").innerText = result;
+      }
+
+      function convertUnit() {
+        let value = parseFloat(document.getElementById("value").value);
+        let from = document.getElementById("unitFrom").value;
+        let to = document.getElementById("unitTo").value;
+        let result;
+        if (from === "cm" && to === "m") result = value / 100;
+        else if (from === "m" && to === "cm") result = value * 100;
+        else result = value;
+        document.getElementById("convertResult").innerText =
+          "Converted: " + result + " " + to;
+      }
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((pos) => {
+            let lat = pos.coords.latitude;
+            let lon = pos.coords.longitude;
+            document.getElementById(
+              "geoResult"
+            ).innerText = `Latitude: ${lat}, Longitude: ${lon}`;
+          });
+        } else {
+          document.getElementById("geoResult").innerText =
+            "Geolocation not supported.";
+        }
+      }
+
+      // Tabs functionality
+      const buttons = document.querySelectorAll(".tab-btn");
+      const contents = document.querySelectorAll(".tab-content");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          contents.forEach((c) => c.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById(btn.dataset.tab).classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
