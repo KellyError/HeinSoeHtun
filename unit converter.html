@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Converter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+        background: #f0f4f9;
+      }
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 400px;
+        margin: auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      input,
+      select,
+      button {
+        margin-top: 10px;
+        padding: 10px;
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+      button {
+        cursor: pointer;
+        background: #4f46e5;
+        color: white;
+        border: none;
+        font-weight: bold;
+      }
+      button:hover {
+        background: #4338ca;
+      }
+      .back-btn {
+        background: #6b7280;
+        margin-top: 10px;
+      }
+      .back-btn:hover {
+        background: #374151;
+      }
+      #result {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+      .error {
+        color: red;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Temperature Converter</h2>
+      <label for="temp">Enter Temperature:</label>
+      <input type="number" id="temp" placeholder="Enter value" />
+      <select id="scale">
+        <option value="c2f">Celsius → Fahrenheit</option>
+        <option value="f2c">Fahrenheit → Celsius</option>
+      </select>
+      <button onclick="convert()">Convert</button>
+      <button class="back-btn" onclick="window.location.href='index.html'">
+        Back
+      </button>
+      <div id="result"></div>
+      <div id="error" class="error"></div>
+    </div>
+
+    <script>
+      function convert() {
+        const temp = document.getElementById("temp").value;
+        const scale = document.getElementById("scale").value;
+        const result = document.getElementById("result");
+        const error = document.getElementById("error");
+
+        result.textContent = "";
+        error.textContent = "";
+
+        if (temp === "" || isNaN(temp)) {
+          error.textContent = "⚠️ Please enter a valid number.";
+          return;
+        }
+
+        let val = parseFloat(temp);
+        if (scale === "c2f") {
+          result.textContent = `${val} °C = ${((val * 9) / 5 + 32).toFixed(
+            2
+          )} °F`;
+        } else {
+          result.textContent = `${val} °F = ${(((val - 32) * 5) / 9).toFixed(
+            2
+          )} °C`;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Grading System</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+        background: #fef9c3;
+      }
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 400px;
+        margin: auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      input,
+      button {
+        margin-top: 10px;
+        padding: 10px;
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+      button {
+        cursor: pointer;
+        background: #16a34a;
+        color: white;
+        border: none;
+        font-weight: bold;
+      }
+      button:hover {
+        background: #15803d;
+      }
+      .back-btn {
+        background: #6b7280;
+        margin-top: 10px;
+      }
+      .back-btn:hover {
+        background: #374151;
+      }
+      #result {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+      .error {
+        color: red;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Grading System</h2>
+      <label for="marks">Enter Marks (0 - 100):</label>
+      <input type="number" id="marks" placeholder="Enter marks" />
+      <button onclick="checkGrade()">Check Grade</button>
+      <button class="back-btn" onclick="window.location.href='index.html'">
+        Back
+      </button>
+      <div id="result"></div>
+      <div id="error" class="error"></div>
+    </div>
+
+    <script>
+      function checkGrade() {
+        const marks = document.getElementById("marks").value;
+        const result = document.getElementById("result");
+        const error = document.getElementById("error");
+
+        result.textContent = "";
+        error.textContent = "";
+
+        if (marks === "" || isNaN(marks)) {
+          error.textContent = "⚠️ Please enter a number between 0 and 100.";
+          return;
+        }
+
+        const val = parseFloat(marks);
+        if (val < 0 || val > 100) {
+          error.textContent = "⚠️ Marks must be between 0 and 100.";
+          return;
+        }
+
+        let grade;
+        if (val >= 90) grade = "A";
+        else if (val >= 80) grade = "B";
+        else if (val >= 70) grade = "C";
+        else if (val >= 60) grade = "D";
+        else grade = "F";
+
+        result.textContent = `Your grade is: ${grade}`;
+      }
+    </script>
+  </body>
+</html>
